@@ -14,20 +14,6 @@ const Root = styled.div`
     background-position: center center;
     background-size: cover;
 `;
-const MaskBg = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background-image: radial-gradient(#5d5d5d 1px, #5d5d5d, #333 2px);
-    background-size: 20px 20px;
-    mask: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
-    z-index: 0;
-    &:hover{
-        background: none;
-        transition: background 3s ;
-    }
-`;
 
 const BoxStyled = styled.div`
     position: absolute;
@@ -116,7 +102,6 @@ const Project = ({category, title, img, url}) => {
 
     return (
         <Root ref={imgboxRef} bg={img}>
-            {/* <MaskBg/> */}
             <BoxStyled>
                 <Category>
                     {category.map((item, index) => (
