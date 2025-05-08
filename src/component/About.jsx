@@ -51,7 +51,10 @@ const CreditContent = styled.div`
     left:50%;
     display: inline-flex;
     flex-direction: column;
+    gap:1rem;
     width: 80%;
+    max-width: 1440px;
+    min-width: 320px;
     transform: rotateX(15deg) translate(-50%, -50%);
     transform-origin: center center;
     will-change: transform;
@@ -68,7 +71,7 @@ const TextLine = styled.p`
 `;
 const TitleTextLine = styled(TextLine)`
   margin-bottom: 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
 `;
@@ -95,6 +98,10 @@ const Linkstyled = styled.a`
     backdrop-filter: blur(4px);
     margin: 2rem auto;
     padding: 0.5rem 3rem;
+    &:hover, &:focus{
+      background-color: #7f9fff;
+      transition: all 0.5s ease-in-out;
+    }
 `;
 
 const Dashed = styled.div`
@@ -161,7 +168,7 @@ const About = () => {
         <GridBackground/>
         <CreditContent ref={creditsRef}>
             <TitleTextLine>Thank you for staying with me until the end.</TitleTextLine>
-            <TextLine>With expertise in creative UI/UX design and web publishing, I deliver user-centered and innovative web experiences.</TextLine>
+            <TextLine>With expertise in creative UI/UX design and web publishing,<br/> I deliver user-centered and innovative web experiences.</TextLine>
             <Linkstyled href="https://www.notion.so/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df" target="_blank">
                 {Array.from({ length: 4 }).map((_, index) => (
                   <Cuadrado key={index} className={`cuad${index+1}`}>+</Cuadrado>

@@ -1,31 +1,18 @@
 import React from "react";
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css';
-import ScrollFadeIn from './component/ScrollFadeIn';
-import Clock from "./component/Clock";
-import Visual from "./component/Visual";
-import styled from 'styled-components';
-import HorizontalScrollSection from "./component/HorizontalScrollSection";
-import About from "./component/About";
+import Main from "./main";
+import ProjectFinance from "./projects/ProjectFinance";
 
-const Section = styled.div`
-  /* height: 100vh; */
-  width: 100%;
-`;
 
 function App() {
   return (
-    <div className="App">
-      <Clock/>
-      <Section style={{height:'100vh'}}> 
-        <Visual/>
-      </Section>
-      <Section style={{minHeight:'100vh'}}>
-        <HorizontalScrollSection/>
-      </Section>
-      <Section>
-        <About/>
-      </Section>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/projectFinance" element={<ProjectFinance />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

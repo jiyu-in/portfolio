@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const TimeDataStyled = styled.div`
-    position: fixed;
+    /* position: fixed;
     right: 1rem;
-    top: 1rem;
+    top: 1rem; */
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: -1px;
