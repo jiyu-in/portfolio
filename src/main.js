@@ -60,7 +60,7 @@ function Main() {
         <WorkProcess/>
       </SectionBoard>
       <SectionMain>
-        <BgDiv><Waves/></BgDiv>
+        {/* <BgDiv><Waves/></BgDiv> */}
         <About/>
       </SectionMain>
     </div>

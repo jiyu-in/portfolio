@@ -32,6 +32,7 @@ const CardFace = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    min-height: fit-content;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;

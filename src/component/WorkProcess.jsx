@@ -251,7 +251,8 @@ function WorkProcess() {
             <Subtitle ref={titleRef}>
                 A step-by-step look into my approach to building accessible and efficient websites.
             </Subtitle>
-            <GridContainer>
+            <FlipCard/>
+            {/* <GridContainer>
                 <GridItemLeft>
                     {process.map((item, index) => (
                         <List key={index} className="list-item">
@@ -266,7 +267,7 @@ function WorkProcess() {
                 <GridItem>
                     <FlipCard/>
                 </GridItem>
-            </GridContainer>
+            </GridContainer> */}
             </Wrapper>
         </Root>
     );
