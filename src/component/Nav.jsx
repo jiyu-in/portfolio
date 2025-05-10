@@ -14,21 +14,13 @@ const Navigation = styled.div`
 const LinkStyled = styled(Link)`
     text-decoration: none;
     color: #222;
+    padding: 6px 0;
     position: relative;
-
     &.active {
         color:#7f9fff;
         font-weight: bold;
-    }
-    &:hover, &.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        height: 2px;
-        width: 100%;
-        background: #7f9fff;
-        transition: width 0.5s ease-in-out;
+        border: 1px solid;
+        border-width: 1px 0;
     }
 `;
 

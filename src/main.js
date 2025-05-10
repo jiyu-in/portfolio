@@ -53,12 +53,12 @@ function Main() {
       <SectionMain>
         <Visual/>
       </SectionMain>
-      {/* <Section style={{minHeight:'100vh'}}>
+      <Section style={{minHeight:'100vh'}}>
         <HorizontalScrollSection/>
-      </Section> */}
-      <SectionBoard>
+      </Section>
+      {/* <SectionBoard>
         <WorkProcess/>
-      </SectionBoard>
+      </SectionBoard> */}
       <SectionMain>
         {/* <BgDiv><Waves/></BgDiv> */}
         <About/>

@@ -1,9 +1,8 @@
 import React, { useRef, useLayoutEffect, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Project from "../projects/Project";
-import Overview from "./Overview";
 import { projectData } from "../projects/data/projectData";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,7 +51,6 @@ const IndicatorDot = styled.div`
     border: 1px solid #131313;
     transition: all 0.3s;
 `;
-
 
 const HorizontalScrollSection = () => {
     const containerRef = useRef(null);
@@ -131,25 +129,24 @@ const HorizontalScrollSection = () => {
     <>
         <Wrapper ref={containerRef}>
             <ScrollContainer ref={scrollRef}>
-            {/* {projectData.map((project, idx) => (
+            {projectData.map((project, idx) => (
                 <Card key={project.id}>
-                    <Project
-                        category={project.category}
-                        title={project.title}
-                        img={project.img}
-                        url={project.url}
-                    />
+                <Project
+                    category={project.category}
+                    title={project.title}
+                    img={project.img}
+                    url={project.url}
+                />
                 </Card>
-            ))} */}
-            <Overview/>
+            ))}
             </ScrollContainer>
         </Wrapper>
 
-        {/* <IndicatorWrapper id="indicator">
+        <IndicatorWrapper id="indicator">
             {projectData.map((_, i) => (
             <IndicatorDot key={i} active={i === activeIndex} />
             ))}
-        </IndicatorWrapper> */}
+        </IndicatorWrapper>
         </>
     );
 };

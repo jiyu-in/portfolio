@@ -71,8 +71,9 @@ const TextLine = styled.p`
 `;
 const TitleTextLine = styled(TextLine)`
   margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: "Gothic A1", sans-serif;
+  font-size:clamp(2.75rem, 6vw, 6.25rem);
+  font-weight: 800;
   color: #fff;
 `;
 

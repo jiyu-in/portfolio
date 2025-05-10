@@ -34,7 +34,7 @@ const Segment = styled.div`
     border-radius: 25px;
     background: linear-gradient(135deg, rgba(199, 199, 199, 0.6), rgba(160, 160, 160, 0.3));
     box-shadow: inset -4px -4px 10px rgba(100, 100, 100, 0.2),
-        inset 4px 4px 10px rgba(195, 195, 195, 0.1);
+        inset 4px 4px 10px rgba(195, 195, 195, 0.1); 
     opacity: ${(props) => 1 - props.index * 0.1};
     backdrop-filter: blur(26px);
     transform: rotateY(${props => props.index * 20}deg) translateZ(${props => props.index * 6}px);
