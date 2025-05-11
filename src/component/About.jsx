@@ -170,11 +170,11 @@ const About = () => {
         <CreditContent ref={creditsRef}>
             <TitleTextLine>Thank you for staying with me until the end.</TitleTextLine>
             <TextLine>With expertise in creative UI/UX design and web publishing,<br/> I deliver user-centered and innovative web experiences.</TextLine>
-            <Linkstyled href="https://www.notion.so/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df" target="_blank">
+            <Linkstyled href="mailto:jyin2205@naver.com" target="_blank">
                 {Array.from({ length: 4 }).map((_, index) => (
                   <Cuadrado key={index} className={`cuad${index+1}`}>+</Cuadrado>
                 ))}
-                Notion 
+                Let’s connect
             </Linkstyled>
             <CopyrightLine>© 2025. All rights reserved</CopyrightLine>
         </CreditContent>

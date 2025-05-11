@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3605492405ab2c7d4c5a62b6b871918d",
+    "revision": "cb1b34e0f07c91be05feb8598dd7c881",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "223f3793ffd838f255da",
-    "url": "/portfolio/static/css/main.0eea96d9.chunk.css"
+    "revision": "5bc11626418095d4afb9",
+    "url": "/portfolio/static/css/main.ab22bb55.chunk.css"
   },
   {
-    "revision": "5ebdd0dd51b70ec121ac",
-    "url": "/portfolio/static/js/2.b384a1ee.chunk.js"
+    "revision": "b3c28c357258ef837113",
+    "url": "/portfolio/static/js/2.bcaef11e.chunk.js"
   },
   {
-    "revision": "2d9c67cfb1674002499357d4005ad286",
-    "url": "/portfolio/static/js/2.b384a1ee.chunk.js.LICENSE.txt"
+    "revision": "8b6b22c32f3c1b6c4f0f81cbeab8b739",
+    "url": "/portfolio/static/js/2.bcaef11e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4df83d3051840386dff0",
-    "url": "/portfolio/static/js/3.76f02b70.chunk.js"
+    "revision": "63d58f00441cb60e69e3",
+    "url": "/portfolio/static/js/3.c18c2e79.chunk.js"
   },
   {
-    "revision": "223f3793ffd838f255da",
-    "url": "/portfolio/static/js/main.c6b84260.chunk.js"
+    "revision": "5bc11626418095d4afb9",
+    "url": "/portfolio/static/js/main.be0b024b.chunk.js"
   },
   {
-    "revision": "56ec496e927e6295c463",
-    "url": "/portfolio/static/js/runtime-main.310175d2.js"
+    "revision": "1352502a20370486c35e",
+    "url": "/portfolio/static/js/runtime-main.c5076315.js"
   },
   {
     "revision": "371ab0a0e910c9bde01a80be61939155",
@@ -54,6 +54,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e7d151b83c25a737ae2983fe1d82ad05",
     "url": "/portfolio/static/media/DiagramWavyrectangle.e7d151b8.svg"
+  },
+  {
+    "revision": "dfecdf52a03b807f9a5a8ac0d865ef88",
+    "url": "/portfolio/static/media/ShapesCone.dfecdf52.png"
+  },
+  {
+    "revision": "242b7e0d8a5859229378e19cf63f8674",
+    "url": "/portfolio/static/media/ShapesHelix.242b7e0d.png"
+  },
+  {
+    "revision": "57f3892b6003a696eced758b32c6149b",
+    "url": "/portfolio/static/media/ShapesIcosahedron.57f3892b.png"
   },
   {
     "revision": "cd99d9e4775c82e16b21b172a41fd528",

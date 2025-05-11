@@ -103,6 +103,37 @@
   font-family: "Gothic A1", sans-serif;
 } */
 
+/* Selection 스타일 */
+::selection {
+  background-color: #222;  /* #A7DF00을 사용할 경우, 해당 값으로 변경 */
+  color: #fff;
+}
+
+/* Webkit 스크롤바 기본 스타일 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: #222;
+}
+
+/* Webkit 스크롤바 트랙 */
+::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 6px;
+}
+
+/* Webkit 스크롤바 썸 (핸들) */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 6px;
+}
+
+/* Webkit 스크롤바 썸 호버 */
+::-webkit-scrollbar-thumb:hover {
+  background: #e3e3e3;
+}
+
+
 body {
   margin: 0;
   font-family: "Azeret Mono", "Gothic A1", monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

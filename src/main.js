@@ -26,27 +26,9 @@ const SectionBoard = styled(Section)`
     background-position: left top;
     background-size: 8px;
 `;
-const BgDiv = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-    z-index: 999;
-    & svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 107px;
-    };
-    & .shape-fill {
-      fill:#7f9fff;
-    };
-`;
 
-function Main() {
+function Main() {  
+  
   return (
     <div>
       <Header/>
@@ -60,7 +42,6 @@ function Main() {
         <WorkProcess/>
       </SectionBoard> */}
       <SectionMain>
-        {/* <BgDiv><Waves/></BgDiv> */}
         <About/>
       </SectionMain>
     </div>

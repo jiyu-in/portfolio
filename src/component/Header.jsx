@@ -13,11 +13,11 @@ const Root = styled.div`
     align-items: center;
     justify-content: space-between;
     padding:1.5rem 2rem;
-    background-color: #ffffff9c;
+    background-color: #ffffffe0;
     backdrop-filter:blur(3px);
     box-sizing: border-box;
     overflow: hidden;
-    z-index: 999;
+    z-index: 10;
     @media (max-width: 786px) {
         padding:1.5rem 1rem;
     }
