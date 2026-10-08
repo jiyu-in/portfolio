@@ -1,8 +1,8 @@
 // FlipCard.jsx
 import React from "react";
 import styled, { keyframes }  from "styled-components";
-import { ReactComponent as CursorIcon } from "../assets/CursorIcon.svg";
-import { ReactComponent as CursorWhiteIcon } from "../assets/CursorWhiteIcon.svg";
+import CursorIcon from "../assets/CursorIcon.svg?react";
+import CursorWhiteIcon from "../assets/CursorWhiteIcon.svg?react";
 
 const upDown = keyframes`
     0% { transform: translateY(0); }

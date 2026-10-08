@@ -1,6 +1,5 @@
 // CucaScroll.jsx
 import React, { useEffect, useRef } from 'react';
-import { createGlobalStyle } from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -24,32 +23,6 @@ const Root = styled.div`
     }
 `;
 
-
-const GlobalStyle = createGlobalStyle`
-    .gsap {
-        text-align: right;
-        margin: 10px 10px 0 0;
-        color: green;
-    }
-    /* main {
-        position: absolute;
-        margin: 20%;
-        max-width: 600px;
-    }
-    main p {
-        font-size: calc(18px + 1vw);
-        margin: 0 0 100px 0;
-    } */
-    /* #theCucas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        overflow: visible;
-    }
-    .cuca {
-        visibility: hidden;
-    } */
-`;
 
 export default function ProjectFinance() {
   const sectionRef = useRef(null);
@@ -152,7 +125,6 @@ export default function ProjectFinance() {
 
   return (
     <Root>
-      {/* <GlobalStyle /> */}
       <Section ref={sectionRef}>
         <svg id="theCucas" viewBox="0 0 600 400">
           {/* <defs>

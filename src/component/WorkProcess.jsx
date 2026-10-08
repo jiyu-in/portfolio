@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styled, { keyframes } from 'styled-components';
-import { ReactComponent as DiagramCapsule } from "../assets/DiagramCapsule.svg";
-import { ReactComponent as DiagramParallelogram } from "../assets/DiagramParallelogram.svg";
-import { ReactComponent as DiagramRhombus } from "../assets/DiagramRhombus.svg";
-import { ReactComponent as DiagramSquare } from "../assets/DiagramSquare.svg";
-import { ReactComponent as DiagramWavyrectangle } from "../assets/DiagramWavyrectangle.svg";
+import DiagramCapsule from "../assets/DiagramCapsule.svg?react";
+import DiagramParallelogram from "../assets/DiagramParallelogram.svg?react";
+import DiagramRhombus from "../assets/DiagramRhombus.svg?react";
+import DiagramSquare from "../assets/DiagramSquare.svg?react";
+import DiagramWavyrectangle from "../assets/DiagramWavyrectangle.svg?react";
 import FlipCard from "./FlipCart";
 
 const shake = keyframes`

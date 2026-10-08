@@ -23,7 +23,6 @@ export const TitleStyle = styled.div`
     margin-bottom:1.25rem;
     & h2{
         display: inline-block;
-        /* font-size: 4rem; */
         font-size: calc(16px + 0.5vw);
         color: #F88960;
         margin: 0;
@@ -31,7 +30,6 @@ export const TitleStyle = styled.div`
     }
     @media (max-width: 960px) {
         & h2{
-        /* font-size: 2.5rem; */
         font-size: calc(16px + 0.5vw);
     }
     }
