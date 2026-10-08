@@ -1,19 +1,9 @@
-✦ Portfolio Overview / ✦ 포트폴리오 안내
+# JIYU Portfolio — source download
 
-This portfolio is currently in progress.
-본 포트폴리오는 현재 제작 중에 있습니다.
+[Download portfolio-renewal.zip](https://github.com/jiyu-in/portfolio_2026/raw/refs/heads/portfolio-renewal-download/portfolio-renewal.zip)
 
-Detailed information on all projects can be found via Notion for the time being.
-전체 프로젝트에 대한 상세 내용은 Notion을 통해 우선 확인하실 수 있습니다.
+The ZIP contains the latest complete project source, public assets, package lockfile, documentation and deployment configuration. Dependencies, Git metadata and old generated builds are excluded.
 
-(GSAP has been used to implement interactive elements.)
-(GSAP을 활용하여 인터랙티브한 요소를 구현하고 있습니다.)
+Extract into a new folder. With Node 24 LTS, run `npm ci` and `npm start` inside `portfolio_2026`. Actual project screenshots and career/project content still require confirmation; see `docs/content-review.md`.
 
-Despite its minimal layout, I aimed to convey my visual sensibility and understanding of user experience as a designer.
-단순한 레이아웃 속에서도 디자이너로서의 시각적 감각과 사용자 경험에 대한 이해를 담고자 하였습니다.
-
-Thank you for taking the time to view my work.
-끝까지 살펴봐 주셔서 감사합니다.
-
-The content will be updated through future work.
-추후 작업을 통해 업데이트 할 예정입니다.
+SHA-256: `ed8ea8e183b8d4306bd00f5b33794a057d82301cdb4aa84d50386cb5955be80f`
