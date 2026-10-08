@@ -6,4 +6,4 @@ The ZIP contains the latest complete project source, public assets, package lock
 
 Extract into a new folder. With Node 24 LTS, run `npm ci` and `npm start` inside `portfolio_2026`. Actual project screenshots and career/project content still require confirmation; see `docs/content-review.md`.
 
-SHA-256: `9ab087ac7c2d3fab78eedcc77a15b5139bee2abc2c84e47d1e0d9a4248a8eb39`
+SHA-256: `b54bb6ef108b03140e3d08590e5e8144f0bc381073d6fa53d4cdeb7477213033`
