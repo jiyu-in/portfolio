@@ -8,7 +8,7 @@ beforeEach(() => window.history.replaceState(null, '', '/#/'));
 
 test('renders portfolio sections and full navigation', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('DESIGN');
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Designing Interfaces,');
   expect(screen.getByRole('heading', { name: 'SELECTED WORKS' })).toBeInTheDocument();
   const nav = screen.getByRole('navigation', { name: '주요 메뉴' });
   expect(within(nav).getAllByRole('link')).toHaveLength(4);
@@ -109,4 +109,18 @@ test.each([null, undefined, '', [], {}])('detail hides empty data (%j) without e
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
     expect(screen.queryByText(/N\/A|TBD|TODO|Coming Soon/)).not.toBeInTheDocument();
   } finally { projectData.pop(); }
+});
+
+test('project without a thumbnail shows an explicit preview rather than a broken image', () => {
+  const original = projectData[0].thumbnail;
+  projectData[0].thumbnail = null;
+  try {
+    render(<App />);
+    const article = screen.getByRole('article', { name: projectData[0].title });
+    expect(within(article).queryByRole('img')).not.toBeInTheDocument();
+    expect(within(article).getByText('LAYOUT PREVIEW · 실제 작업 화면 아님')).toBeInTheDocument();
+    expect(within(article).getByRole('link')).toHaveAttribute('href', `#/project/${projectData[0].id}`);
+  } finally {
+    projectData[0].thumbnail = original;
+  }
 });

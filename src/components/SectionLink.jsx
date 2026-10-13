@@ -1,8 +1,6 @@
-import React from 'react';
-
 // Section anchors must not replace the HashRouter route fragment.
 export default function SectionLink({ href, children, onNavigate, ...props }) {
-  const navigate = event => {
+  const navigate = (event) => {
     const target = document.getElementById(href.slice(1));
     if (!target) return;
     event.preventDefault();
@@ -13,5 +11,9 @@ export default function SectionLink({ href, children, onNavigate, ...props }) {
       target.focus({ preventScroll: true });
     }
   };
-  return <a {...props} href={href} onClick={navigate}>{children}</a>;
+  return (
+    <a {...props} href={href} onClick={navigate}>
+      {children}
+    </a>
+  );
 }

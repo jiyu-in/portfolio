@@ -1,0 +1,68 @@
+// Site copy and labels. Project and profile facts remain in their own data files.
+export const siteData = {
+  brand: 'JIYU.',
+  homeTitle: 'JIYU. — UI/UX Designer & Publisher',
+  homeLabel: 'JIYU 홈',
+  skipLink: '본문으로 건너뛰기',
+  navigationLabel: '주요 메뉴',
+  navigation: [
+    { id: 'work', label: 'WORK' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'experience', label: 'EXPERIENCE' },
+    { id: 'contact', label: 'CONTACT' },
+  ],
+  menuOpen: 'MENU +',
+  menuClose: 'CLOSE −',
+  edition: 'PORTFOLIO / 2026',
+  works: {
+    title: 'SELECTED WORKS',
+    link: 'VIEW PROJECT',
+    linkSuffix: '프로젝트 보기',
+    rolesLabel: '프로젝트 역할',
+    industryLabel: '프로젝트 분야',
+  },
+  visuals: { title: 'SELECTED VISUALS' },
+  about: { title: 'ABOUT', statement: ['I DESIGN.', 'I BUILD.'] },
+  skills: { title: 'SKILLS' },
+  experience: {
+    title: 'EXPERIENCE',
+    statement: ['YEARS OF', 'DESIGNING', 'DIGITAL EXPERIENCES.'],
+    industriesLabel: '경험 산업',
+  },
+  contact: {
+    title: 'CONTACT',
+    statement: ['LET’S WORK', 'TOGETHER.'],
+    emailLabel: 'EMAIL',
+    githubLabel: 'GITHUB',
+  },
+  footer: { role: 'UI/UX DESIGNER & PUBLISHER' },
+  project: {
+    back: '← BACK TO WORK',
+    notFoundDocumentTitle: 'Project not found',
+    role: 'ROLE',
+    period: 'PERIOD',
+    tools: 'TOOLS / TECHNOLOGIES',
+    liveLink: '퍼블리싱 화면 보기 ↗',
+    originalLink: 'NOTION에서 전체 프로젝트 보기 ↗',
+    notFoundTitle: 'PROJECT NOT FOUND.',
+    notFoundDescription: '요청하신 프로젝트를 찾을 수 없습니다.',
+    referenceCaption: '참고 이미지 · 실제 서비스 화면이 아닙니다.',
+    referenceAlt: '참고 이미지',
+    screenshotAlt: '서비스 화면',
+  },
+  notFound: {
+    documentTitle: 'Page not found — JIYU.',
+    title: 'PAGE NOT FOUND.',
+    description: '요청하신 페이지를 찾을 수 없습니다.',
+    back: '← BACK TO HOME',
+  },
+};
+
+export const projectSectionLabels = [
+  ['overview', 'OVERVIEW'],
+  ['roles', 'ROLE'],
+  ['keyWork', 'KEY WORK'],
+  ['design', 'DESIGN'],
+  ['implementation', 'IMPLEMENTATION'],
+  ['result', 'RESULT'],
+];
