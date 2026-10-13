@@ -1,9 +1,7 @@
-# JIYU Portfolio — source download
+# Portfolio source download
 
-[Download portfolio-renewal.zip](https://github.com/jiyu-in/portfolio_2026/raw/refs/heads/portfolio-renewal-download/portfolio-renewal.zip)
+[Download ZIP](https://github.com/jiyu-in/portfolio_2026/raw/refs/heads/portfolio-renewal-download/portfolio-renewal.zip)
 
-The ZIP contains the latest complete project source, public assets, package lockfile, documentation and deployment configuration. Dependencies, Git metadata and old generated builds are excluded.
+Latest full source with Hero update. Extract into a new folder; Node 24 LTS, npm ci, npm start. See docs/hero-update.md for details.
 
-Extract into a new folder. With Node 24 LTS, run `npm ci` and `npm start` inside `portfolio_2026`. Actual project screenshots and career/project content still require confirmation; see `docs/content-review.md`.
-
-SHA-256: `6994b57b06838a2e88ab5914f3a4ace976acddee9339afea211745fd02be3765`
+SHA-256: 0cd6989c84243cb3985ecb3f4d2f7149b1c2918fdfbae02cc3416ff4da410ae7
