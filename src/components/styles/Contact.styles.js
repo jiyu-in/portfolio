@@ -3,7 +3,13 @@ import { Section } from './Section.styles';
 
 export const Root = styled(Section)`
   .statement {
-    font-size: clamp(48px, 8vw, 120px);
+    font-size: clamp(40px, 6vw, 88px);
+  }
+  .contact-description {
+    max-width: 540px;
+    color: var(--text-muted);
+    margin-top: 28px;
+    font-size: 16px;
   }
   .contacts {
     display: grid;

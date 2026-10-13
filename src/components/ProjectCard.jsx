@@ -1,6 +1,5 @@
 import ProjectPlaceholder from './ProjectPlaceholder';
 import { useReducedMotion } from 'framer-motion';
-import { notebookData } from '../data/notebookData';
 import { siteData } from '../data/siteData';
 import { Root } from './styles/ProjectCard.styles';
 import { Link } from 'react-router-dom';
@@ -12,56 +11,47 @@ export default function ProjectCard({ project }) {
   const canReveal =
     !reduceMotion && typeof IntersectionObserver !== 'undefined';
   const roles = contentList(project.roles);
-  const tags = roles.length ? roles : contentList(project.categories);
+  const skills = contentList(project.skills);
+  const period = contentText(project.period) || contentText(project.year);
   return (
     <Root
-      initial={canReveal ? { opacity: 0, y: 32 } : false}
+      initial={canReveal ? { opacity: 0, y: 40 } : false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.12 }}
-      whileHover={reduceMotion ? undefined : { y: -5, rotate: 0.4 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      whileHover={undefined}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      $reference={project.imageKind === 'reference'}
       $hasImage={Boolean(contentText(project.thumbnail))}
       aria-labelledby={`project-${project.id}`}
     >
+      {contentText(project.thumbnail) ? (
+        <ProjectImage className="image" project={project} />
+      ) : (
+        <ProjectPlaceholder project={project} className="image" />
+      )}
       <div className="project-copy">
         <div className="metadata">
           <span className="number">/{project.index}</span>
-          {contentText(project.year) && (
-            <span className="year">{project.year}</span>
-          )}
         </div>
         <h3 id={`project-${project.id}`}>{project.title}</h3>
         <p className="subtitle">
           {project.subtitle}
           {contentText(project.projectType) && ` · ${project.projectType}`}
         </p>
+        {(roles.length > 0 || period || skills.length > 0) && (
+          <p className="role-line">
+            {roles.length > 0 && <span>{roles.join(' / ')}</span>}
+            {period && <span>{period}</span>}
+            {skills.length > 0 && <span>{skills.join(' / ')}</span>}
+          </p>
+        )}
         {contentText(project.description) && (
           <p className="description">{project.description}</p>
         )}
-        {tags.length > 0 && (
-          <ul
-            aria-label={
-              roles.length
-                ? siteData.works.rolesLabel
-                : siteData.works.industryLabel
-            }
-          >
-            {tags.map((category) => (
-              <li key={category}>{category}</li>
-            ))}
-          </ul>
-        )}
         {contentList(project.keyWork).length > 0 && (
-          <div className="scope">
-            <strong>{notebookData.scopeLabel}</strong>
-            <ul>
-              {contentList(project.keyWork)
-                .slice(0, 3)
-                .map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-            </ul>
-          </div>
+          <p className="description key-work">
+            {contentList(project.keyWork).slice(0, 2).join(' · ')}
+          </p>
         )}
         <Link
           className="view"
@@ -71,11 +61,6 @@ export default function ProjectCard({ project }) {
           {siteData.works.link} <span aria-hidden="true">↗</span>
         </Link>
       </div>
-      {contentText(project.thumbnail) ? (
-        <ProjectImage className="image" project={project} />
-      ) : (
-        <ProjectPlaceholder project={project} className="image" />
-      )}
     </Root>
   );
 }

@@ -15,8 +15,8 @@ export const ScreenStack = styled.div`
 `;
 export const Screen = styled(motion.div)`
   position: absolute;
-  width: min(78%, 420px);
-  left: 10%;
+  width: min(88%, 510px);
+  left: 6%;
   top: 20%;
   z-index: ${({ $index }) => 3 - $index};
   @media (max-width: 767px) {
@@ -26,10 +26,9 @@ export const Screen = styled(motion.div)`
 `;
 export const Sheet = styled(motion.div)`
   padding: 18px;
-  background: var(--surface-soft);
+  background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 0 16px 40px ${({ theme }) => `${theme.colors.accent}14`};
-  border-radius: 3px;
+  border-radius: 2px;
   .caption {
     display: flex;
     justify-content: space-between;
@@ -46,7 +45,7 @@ export const Sheet = styled(motion.div)`
   }
   img {
     width: 100%;
-    height: 160px;
+    height: 210px;
     object-fit: cover;
   }
   @media (max-width: 767px) {
@@ -56,8 +55,13 @@ export const Sheet = styled(motion.div)`
 export const Mockup = styled.div`
   display: grid;
   grid-template-columns: 22% 1fr;
-  min-height: 150px;
-  background: ${({ theme, $index }) => [theme.colors.surface, theme.colors.accentSoft, theme.colors.surfaceSoft][$index]};
+  min-height: 190px;
+  background: ${({ theme, $index }) =>
+    [
+      theme.colors.surfaceSoft,
+      theme.colors.surfaceSoft,
+      theme.colors.surfaceSoft,
+    ][$index]};
   gap: 16px;
   padding: 18px;
   .sidebar {

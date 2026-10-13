@@ -16,7 +16,7 @@ function TransitionSurface({ children }) {
       animate={{ opacity: 1, y: 0 }}
       exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -16 }}
       transition={{
-        duration: reduceMotion ? 0 : 0.4,
+        duration: reduceMotion ? 0 : 0.5,
         ease: [0.22, 1, 0.36, 1],
       }}
     >

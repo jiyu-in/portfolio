@@ -12,9 +12,11 @@ export default function SelectedWorks() {
         {siteData.works.title}
       </SectionTitle>
       <p className="notebook-intro">{notebookData.notebookDescription}</p>
-      {projectData.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      <div className="archive-grid">
+        {projectData.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </Root>
   );
 }

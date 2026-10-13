@@ -47,6 +47,7 @@ export const profileData = {
   github: 'https://github.com/jiyu-in',
   githubLabel: 'jiyu-in',
   linkedin: null,
+  resumeUrl: null, // TODO: supply an actual public resume URL or PDF.
   todo: [
     '재직 기준 경력 시작 연도 확인: 프로젝트 시작 시점과 별도로 확인',
     '10+ 경력 문구 및 현재 연락처 최종 확인',

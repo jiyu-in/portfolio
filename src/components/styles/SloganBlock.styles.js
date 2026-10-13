@@ -17,25 +17,25 @@ export const Slogan = styled(motion.div)`
 `;
 export const SloganTitle = styled.h1`
   margin-top: 32px;
-  font-size: clamp(46px, 5.8vw, 88px);
+  font-size: var(--type-hero);
   line-height: 1.05;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.055em;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   span {
     display: block;
   }
   span:last-child {
-    font-style: italic;
+    font-style: normal;
     color: var(--accent-text);
   }
   @media (max-width: 767px) {
-    font-size: clamp(38px, 9vw, 64px);
+    font-size: clamp(36px, 9vw, 64px);
   }
 `;
 export const SloganText = styled.p`
   margin-top: 32px;
-  max-width: 370px;
-  font-size: 17px;
+  max-width: 390px;
+  font-size: 16px;
   word-break: keep-all;
 `;

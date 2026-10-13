@@ -21,12 +21,11 @@ export default function ProjectImage({ project, detail = false, className }) {
           height={project.imageHeight}
         />
       </div>
-      {(contentText(project.imageCaption) || reference) && (
+      {/* {(contentText(project.imageCaption) || reference) && (
         <figcaption>
-          {contentText(project.imageCaption) ||
-            siteData.project.referenceCaption}
+          {contentText(project.imageCaption) || siteData.project.referenceCaption}
         </figcaption>
-      )}
+      )} */}
     </Root>
   );
 }

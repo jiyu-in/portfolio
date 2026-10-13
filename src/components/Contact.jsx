@@ -1,3 +1,4 @@
+import { scrollPortfolioData } from '../data/scrollPortfolioData';
 import TextLines from './TextLines';
 import { siteData } from '../data/siteData';
 import { Root } from './styles/Contact.styles';
@@ -11,6 +12,9 @@ export default function Contact() {
       </h2>
       <p className="statement">
         <TextLines lines={siteData.contact.statement} />
+      </p>
+      <p className="contact-description">
+        {scrollPortfolioData.contactDescription}
       </p>
       <div className="contacts">
         {profileData.email && (
@@ -33,6 +37,17 @@ export default function Contact() {
               <span className="label">{siteData.contact.githubLabel}</span>
               <span className="value">{profileData.githubLabel}</span>
             </span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
+        {profileData.resumeUrl && (
+          <a
+            className="contact-link"
+            href={profileData.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {scrollPortfolioData.resumeLabel}
             <span aria-hidden="true">↗</span>
           </a>
         )}

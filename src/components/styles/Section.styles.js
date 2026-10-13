@@ -10,7 +10,7 @@ export const Section = styled.section`
     letter-spacing: 1px;
   }
   .statement {
-    font-size: clamp(42px, 6vw, 90px);
+    font-size: var(--type-section);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.06em;

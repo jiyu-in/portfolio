@@ -14,9 +14,9 @@ export const HeroSection = styled.section`
 `;
 export const HeroComposition = styled.div`
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   align-items: center;
-  gap: 32px;
+  gap: clamp(40px, 6vw, 96px);
   padding-block: 32px;
   @media (max-width: 1199px) {
     grid-template-columns: 1fr 1fr;

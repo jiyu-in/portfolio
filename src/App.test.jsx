@@ -43,7 +43,7 @@ test('work navigation scrolls without replacing the HashRouter route', () => {
 
 test('renders subsequent sections and the original contact email', () => {
   render(<App />);
-  ['ABOUT', 'SKILLS', 'EXPERIENCE', 'CONTACT'].forEach(name => {
+  ['DESIGN & IMPLEMENTATION', 'PROJECT PREVIEW', 'PROJECT ARCHIVE', 'CONTACT'].forEach(name => {
     expect(screen.getByRole('heading', { name })).toBeInTheDocument();
   });
   expect(screen.getByRole('link', { name: /jyin2205@naver.com/ })).toHaveAttribute('href', 'mailto:jyin2205@naver.com');

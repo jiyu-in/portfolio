@@ -8,7 +8,7 @@ export const Root = styled.div`
   border-bottom: 1px solid var(--line);
   padding-bottom: 28px;
   h2 {
-    font-size: clamp(42px, 6vw, 90px);
+    font-size: var(--type-section);
     line-height: 1;
     letter-spacing: -0.065em;
     font-weight: 800;

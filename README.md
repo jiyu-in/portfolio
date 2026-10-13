@@ -81,3 +81,9 @@ Actions의 **Publish portfolio to GitHub Pages** 워크플로를 수동 실행�
 FloatingProjectScreens의 느린 모으기·hover 펼침·상단 복귀 재생은 [인터랙션 안내](docs/floating-screen-interaction.md)를 참고하세요.
 
 현재 화면은 쿨 그레이·딥 네이비 팔레트를 사용합니다. 색상 수정과 대비 확인 내용은 [팔레트 안내](docs/cool-palette.md)를 참고하세요.
+
+현재 최종 UI는 장식을 줄인 케이스스터디 아카이브입니다. 흰색 카드·정돈된 grid·sans-serif Hero·절제된 모션을 적용했습니다. [최종 디자인 변경](docs/archive-refinement.md)을 참고하세요.
+
+## 현재 최종 화면
+
+화이트·블랙 기반의 Intro → sticky Scroll Story → 전체 배경 프리뷰 → 프로젝트 Reveal → Archive → Contact 흐름입니다. 기존 작업 7개와 상세 4개를 보존했습니다. [스크롤 포트폴리오 안내](docs/scroll-portfolio.md)를 참고하세요.

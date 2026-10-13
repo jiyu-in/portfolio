@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --type-hero: ${({ theme }) => theme.typography.hero};
+    --type-section: ${({ theme }) => theme.typography.section};
+    --type-project: ${({ theme }) => theme.typography.project};
+    --type-body: ${({ theme }) => theme.typography.body};
+    --type-caption: ${({ theme }) => theme.typography.caption};
     --background: ${({ theme }) => theme.colors.background};
     --surface: ${({ theme }) => theme.colors.surface};
     --surface-soft: ${({ theme }) => theme.colors.surfaceSoft};
@@ -27,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
   ::selection { background: var(--text-primary); color: var(--background); }
   :focus-visible { outline: 2px solid var(--text-primary); outline-offset: 6px; }
   .container { width: 100%; max-width: ${({ theme }) => theme.layout.maxWidth}; margin-inline: auto; padding-inline: 64px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
   .skip-link { position: fixed; top: 12px; left: 20px; padding: 8px 16px; background: var(--text-primary); color: var(--background); z-index: 100; transform: translateY(-160%); }
   .skip-link:focus { transform: translateY(0); }
   @media (max-width: 1199px) { .container { padding-inline: 32px; } }

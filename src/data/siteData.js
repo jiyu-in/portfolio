@@ -1,4 +1,3 @@
-// Site copy and labels. Project and profile facts remain in their own data files.
 export const siteData = {
   brand: 'JIYU.',
   homeTitle: 'JIYU. — UI/UX Designer & Publisher',
@@ -7,8 +6,8 @@ export const siteData = {
   navigationLabel: '주요 메뉴',
   navigation: [
     { id: 'work', label: 'WORK' },
-    { id: 'about', label: 'ABOUT' },
-    { id: 'experience', label: 'EXPERIENCE' },
+    { id: 'story', label: 'STORY' },
+    { id: 'archive', label: 'ARCHIVE' },
     { id: 'contact', label: 'CONTACT' },
   ],
   menuOpen: 'MENU +',
@@ -18,6 +17,7 @@ export const siteData = {
     title: 'SELECTED WORKS',
     link: 'VIEW PROJECT',
     linkSuffix: '프로젝트 보기',
+    keywordsLabel: '프로젝트 키워드',
     rolesLabel: '프로젝트 역할',
     industryLabel: '프로젝트 분야',
   },
@@ -31,7 +31,7 @@ export const siteData = {
   },
   contact: {
     title: 'CONTACT',
-    statement: ['LET’S WORK', 'TOGETHER.'],
+    statement: ['Let’s build', 'better experiences.'],
     emailLabel: 'EMAIL',
     githubLabel: 'GITHUB',
   },

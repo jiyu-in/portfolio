@@ -3,12 +3,11 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SectionLink from '../components/SectionLink';
 import Header from '../components/Header';
-import Hero from '../components/Hero';
+import HeroIntro from '../components/HeroIntro';
+import ScrollStorySection from '../components/ScrollStorySection';
+import ProjectPreviewSection from '../components/ProjectPreviewSection';
+import ProjectArchive from '../components/ProjectArchive';
 import SelectedWorks from '../components/SelectedWorks';
-import SelectedVisuals from '../components/SelectedVisuals';
-import About from '../components/About';
-import Skills from '../components/Skills';
-import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 export default function Home() {
@@ -34,12 +33,11 @@ export default function Home() {
       </SectionLink>
       <Header />
       <main id="main" tabIndex={-1}>
-        <Hero />
+        <HeroIntro />
+        <ScrollStorySection />
+        <ProjectPreviewSection />
         <SelectedWorks />
-        <SelectedVisuals />
-        <About />
-        <Skills />
-        <Experience />
+        <ProjectArchive />
         <Contact />
       </main>
       <Footer />
