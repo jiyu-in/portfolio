@@ -1,5 +1,11 @@
+import { Container } from './styles/Common.styles';
+import {
+  HeaderInner,
+  HeaderLogo,
+  HeaderEdition,
+  Root,
+} from './styles/Header.styles';
 import { siteData } from '../data/siteData';
-import { Root } from './styles/Header.styles';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionLink from './SectionLink';
@@ -36,21 +42,21 @@ export default function Header({ detail = false }) {
         }
       }}
     >
-      <div className="container">
-        <div className="inner">
+      <Container>
+        <HeaderInner>
           {detail ? (
-            <Link className="logo" to="/" aria-label={siteData.homeLabel}>
+            <HeaderLogo to="/" aria-label={siteData.homeLabel}>
               {siteData.brand}
-            </Link>
+            </HeaderLogo>
           ) : (
-            <SectionLink
-              className="logo"
+            <HeaderLogo
+              as={SectionLink}
               href="#top"
               aria-label={siteData.homeLabel}
               onNavigate={close}
             >
               {siteData.brand}
-            </SectionLink>
+            </HeaderLogo>
           )}
           <button
             type="button"
@@ -83,9 +89,9 @@ export default function Header({ detail = false }) {
               ),
             )}
           </nav>
-          <span className="edition">{siteData.edition}</span>
-        </div>
-      </div>
+          <HeaderEdition>{siteData.edition}</HeaderEdition>
+        </HeaderInner>
+      </Container>
     </Root>
   );
 }

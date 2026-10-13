@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 const GlobalStyle = createGlobalStyle`
   :root {
     --type-hero: ${({ theme }) => theme.typography.hero};
@@ -7,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     --type-project: ${({ theme }) => theme.typography.project};
     --type-body: ${({ theme }) => theme.typography.body};
     --type-caption: ${({ theme }) => theme.typography.caption};
+    --header-height: ${({ theme }) => theme.layout.headerHeight};
     --background: ${({ theme }) => theme.colors.background};
     --surface: ${({ theme }) => theme.colors.surface};
     --surface-soft: ${({ theme }) => theme.colors.surfaceSoft};
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   html { scroll-behavior: smooth; scroll-padding-top: 96px; }
   body {
     margin: 0; background: var(--background); color: var(--text-primary);
-    font-family: Arial, 'Helvetica Neue', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    font-family: ${({ theme }) => theme.typography.fontFamily};
     font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, p { margin: 0; }
@@ -31,12 +31,9 @@ const GlobalStyle = createGlobalStyle`
   img { display: block; max-width: 100%; }
   ::selection { background: var(--text-primary); color: var(--background); }
   :focus-visible { outline: 2px solid var(--text-primary); outline-offset: 6px; }
-  .container { width: 100%; max-width: ${({ theme }) => theme.layout.maxWidth}; margin-inline: auto; padding-inline: 64px; }
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-  .skip-link { position: fixed; top: 12px; left: 20px; padding: 8px 16px; background: var(--text-primary); color: var(--background); z-index: 100; transform: translateY(-160%); }
-  .skip-link:focus { transform: translateY(0); }
-  @media (max-width: 1199px) { .container { padding-inline: 32px; } }
-  @media (max-width: 767px) { .container { padding-inline: 20px; } body { font-size: 16px; } }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    body[data-custom-cursor='true'], body[data-custom-cursor='true'] * { cursor: none !important; }
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }

@@ -1,19 +1,22 @@
+import { containerLayout } from './Common.styles';
 import styled from 'styled-components';
+export const FooterInner = styled.div``;
 
 export const Root = styled.footer`
-  .inner {
+  ${containerLayout};
+  ${FooterInner} {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     border-top: 1px solid var(--line);
-    padding-block: 24px;
+    padding-block: ${({ theme }) => theme.spacing.md};
     font-size: 12px;
     color: var(--text-muted);
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    .inner {
+    ${FooterInner} {
       flex-direction: column;
-      gap: 8px;
+      gap: ${({ theme }) => theme.spacing.xs};
     }
   }
 `;

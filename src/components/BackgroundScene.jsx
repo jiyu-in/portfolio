@@ -1,3 +1,15 @@
+import { HiddenHeading, HiddenList } from './styles/Common.styles';
+import {
+  StaticScene,
+  StaticMessage,
+  StaticCaption,
+  SceneSection,
+  SceneStage,
+  SceneImage,
+  SceneMessage,
+  SceneCaption,
+  StaticScenes,
+} from './styles/BackgroundScene.styles';
 import { useRef, useState } from 'react';
 import {
   useScroll,
@@ -6,16 +18,7 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 import { scrollPortfolioData } from '../data/scrollPortfolioData';
-import {
-  SceneSection,
-  SceneStage,
-  SceneImage,
-  SceneMessage,
-  SceneCaption,
-  StaticScenes,
-} from './styles/BackgroundScene.styles';
-
-function SceneLayer({ scene, index, count, progress }) {
+function SceneLayer({ scene, index, count, progress, entryProgress }) {
   const start = index / count;
   const end = (index + 1) / count;
   const opacity = useTransform(
@@ -36,18 +39,18 @@ function SceneLayer({ scene, index, count, progress }) {
     [28, 0, -28],
   );
   const scale = useTransform(progress, [start, end], [1.03, 1]);
+  const entryScale = useTransform(entryProgress, [0, 1], [0.98, 1.03]);
   return (
     <>
-      <SceneImage style={{ opacity, scale }} aria-hidden="true">
+      <SceneImage
+        style={{ opacity, scale: index === 0 ? entryScale : scale }}
+        aria-hidden="true"
+      >
         {scene.image && (
           <img src={scene.image} alt="" loading="lazy" decoding="async" />
         )}
       </SceneImage>
-      <SceneMessage
-        className="container"
-        style={{ opacity: textOpacity, y }}
-        aria-hidden="true"
-      >
+      <SceneMessage style={{ opacity: textOpacity, y }} aria-hidden="true">
         <h3>{scene.title}</h3>
         {scene.description && <p>{scene.description}</p>}
       </SceneMessage>
@@ -61,8 +64,17 @@ function MotionScenes({ id, title, scenes }) {
     target: ref,
     offset: ['start start', 'end end'],
   });
+  const { scrollYProgress: entryProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'start start'],
+  });
   useMotionValueEvent(scrollYProgress, 'change', (value) =>
-    setActive(Math.min(scenes.length - 1, Math.floor(value * scenes.length))),
+    setActive(
+      Math.max(
+        0,
+        Math.min(scenes.length - 1, Math.floor(value * scenes.length)),
+      ),
+    ),
   );
   return (
     <SceneSection
@@ -71,16 +83,14 @@ function MotionScenes({ id, title, scenes }) {
       $count={scenes.length}
       aria-labelledby={`${id}-title`}
     >
-      <h2 id={`${id}-title`} className="sr-only">
-        {title}
-      </h2>
-      <ol className="sr-only">
+      <HiddenHeading id={`${id}-title`}>{title}</HiddenHeading>
+      <HiddenList>
         {scenes.map((scene) => (
           <li key={scene.id}>
             {scene.title} — {scene.description}
           </li>
         ))}
-      </ol>
+      </HiddenList>
       <SceneStage>
         {scenes.map((scene, index) => (
           <SceneLayer
@@ -89,9 +99,10 @@ function MotionScenes({ id, title, scenes }) {
             index={index}
             count={scenes.length}
             progress={scrollYProgress}
+            entryProgress={entryProgress}
           />
         ))}
-        <SceneCaption className="container">
+        <SceneCaption>
           <span>
             {title} / {String(active + 1).padStart(2, '0')}
           </span>
@@ -109,26 +120,24 @@ export default function BackgroundScene({ id, title, scenes }) {
   if (reduce)
     return (
       <StaticScenes id={id} aria-labelledby={`${id}-title`}>
-        <h2 className="sr-only" id={`${id}-title`}>
-          {title}
-        </h2>
+        <HiddenHeading id={`${id}-title`}>{title}</HiddenHeading>
         {scenes.map((scene) => (
-          <div className="static-scene" key={scene.id}>
+          <StaticScene key={scene.id}>
             <SceneImage aria-hidden="true">
               {scene.image && (
                 <img src={scene.image} alt="" loading="lazy" decoding="async" />
               )}
             </SceneImage>
-            <div className="container static-message">
+            <StaticMessage>
               <h3>{scene.title}</h3>
               <p>{scene.description}</p>
               {/* {scene.imageKind === 'reference' && (
-                <p className="static-caption">
+                <StaticCaption>
                   {scrollPortfolioData.referenceCaption}
-                </p>
+                </StaticCaption>
               )} */}
-            </div>
-          </div>
+            </StaticMessage>
+          </StaticScene>
         ))}
       </StaticScenes>
     );

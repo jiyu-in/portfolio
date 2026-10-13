@@ -1,14 +1,22 @@
+import { SkipLink } from '../components/styles/Common.styles';
+import {
+  ProjectBack,
+  ProjectSubtitle,
+  ProjectMetadata,
+  ProjectHeroImage,
+  ProjectNumber,
+  ProjectContent,
+  ProjectDesignVisual,
+  ProjectOriginal,
+  Root,
+} from '../components/styles/Project.styles';
 import { siteData, projectSectionLabels } from '../data/siteData';
-import { Root } from '../components/styles/Project.styles';
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SectionLink from '../components/SectionLink';
-import ProjectImage from '../components/ProjectImage';
 import { projectData } from '../data/projectData';
 import { contentText, contentList } from '../data/contentUtils';
-
 export default function Project() {
   const { id } = useParams();
   const project = projectData.find((item) => item.id === id);
@@ -45,23 +53,21 @@ export default function Project() {
   }, [id, project]);
   return (
     <>
-      <SectionLink className="skip-link" href="#main">
-        {siteData.skipLink}
-      </SectionLink>
+      <SkipLink href="#main">{siteData.skipLink}</SkipLink>
       <Header detail />
-      <Root className="container" id="main" tabIndex={-1}>
-        <Link className="back" to="/" state={{ section: 'work' }}>
+      <Root id="main" tabIndex={-1}>
+        <ProjectBack to="/" state={{ section: 'work' }}>
           {siteData.project.back}
-        </Link>
+        </ProjectBack>
         {project ? (
           <>
             <h1>{project.title}</h1>
-            <p className="subtitle">{project.subtitle}</p>
+            <ProjectSubtitle>{project.subtitle}</ProjectSubtitle>
             {contentText(project.projectType) && <p>{project.projectType}</p>}
             {(roles.length > 0 ||
               contentText(project.year) ||
               contentText(project.period)) && (
-              <div className="metadata">
+              <ProjectMetadata>
                 {roles.length > 0 && (
                   <p>
                     <strong>{siteData.project.role}</strong>
@@ -74,27 +80,27 @@ export default function Project() {
                     {contentText(project.period) || contentText(project.year)}
                   </p>
                 )}
-              </div>
+              </ProjectMetadata>
             )}
             {skills.length > 0 && (
-              <p className="metadata">
+              <ProjectMetadata as="p">
                 <span>
                   <strong>{siteData.project.tools}</strong>
                   {skills.join(' / ')}
                 </span>
-              </p>
+              </ProjectMetadata>
             )}
-            <ProjectImage className="hero-image" project={project} detail />
+            <ProjectHeroImage project={project} detail />
             <div>
               {sections.map((section, index) => (
                 <details key={section.key} open={section.key === 'overview'}>
                   <summary>
-                    <span className="number">
+                    <ProjectNumber>
                       {String(index + 1).padStart(2, '0')}
-                    </span>
+                    </ProjectNumber>
                     {section.label}
                   </summary>
-                  <div className="content">
+                  <ProjectContent>
                     {section.text && <p>{section.text}</p>}
                     {section.items.length > 0 && (
                       <ul>
@@ -105,10 +111,7 @@ export default function Project() {
                     )}
                     {section.key === 'design' &&
                       images.map((item, imageIndex) => (
-                        <figure
-                          className="design-visual"
-                          key={item.id || imageIndex}
-                        >
+                        <ProjectDesignVisual key={item.id || imageIndex}>
                           <img
                             src={item.src}
                             alt={item.alt}
@@ -120,39 +123,39 @@ export default function Project() {
                           {contentText(item.caption) && (
                             <figcaption>{item.caption}</figcaption>
                           )}
-                        </figure>
+                        </ProjectDesignVisual>
                       ))}
-                  </div>
+                  </ProjectContent>
                 </details>
               ))}
             </div>
             {contentText(project.liveUrl) && (
               <p>
-                <a
-                  className="original"
+                <ProjectOriginal
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {siteData.project.liveLink}
-                </a>
+                </ProjectOriginal>
               </p>
             )}
             {contentText(project.url) && (
-              <a
-                className="original"
+              <ProjectOriginal
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {siteData.project.originalLink}
-              </a>
+              </ProjectOriginal>
             )}
           </>
         ) : (
           <>
             <h1>{siteData.project.notFoundTitle}</h1>
-            <p className="subtitle">{siteData.project.notFoundDescription}</p>
+            <ProjectSubtitle>
+              {siteData.project.notFoundDescription}
+            </ProjectSubtitle>
           </>
         )}
       </Root>

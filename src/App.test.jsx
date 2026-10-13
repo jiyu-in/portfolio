@@ -3,27 +3,40 @@ import { vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from './App';
 import { projectData } from './data/projectData';
-
 beforeEach(() => window.history.replaceState(null, '', '/#/'));
 
 test('renders portfolio sections and full navigation', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Designing Interfaces,');
-  expect(screen.getByRole('heading', { name: 'SELECTED WORKS' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+    'Designing Interfaces,',
+  );
+  expect(
+    screen.getByRole('heading', { name: 'SELECTED WORKS' }),
+  ).toBeInTheDocument();
   const nav = screen.getByRole('navigation', { name: '주요 메뉴' });
   expect(within(nav).getAllByRole('link')).toHaveLength(4);
-  expect(within(nav).getByRole('link', { name: 'WORK' })).toHaveAttribute('href', '#work');
+  expect(within(nav).getByRole('link', { name: 'WORK' })).toHaveAttribute(
+    'href',
+    '#work',
+  );
 });
 
 test('renders each selected project with its preserved image and internal detail route', () => {
   render(<App />);
   expect(screen.getAllByRole('article')).toHaveLength(projectData.length);
-  projectData.forEach(project => {
+  projectData.forEach((project) => {
     const article = screen.getByRole('article', { name: project.title });
-    expect(within(article).getByRole('img')).toHaveAttribute('src', project.thumbnail);
+    expect(within(article).getByRole('img')).toHaveAttribute(
+      'src',
+      project.thumbnail,
+    );
     if (project.imageKind === 'reference') {
-      expect(within(article).getByRole('img')).toHaveAccessibleName(`${project.subtitle} 참고 이미지`);
-      expect(within(article).getByText(/참고 이미지 · 실제 서비스 화면이 아닙니다/)).toBeInTheDocument();
+      expect(within(article).getByRole('img')).toHaveAccessibleName(
+        `${project.subtitle} 참고 이미지`,
+      );
+      expect(
+        within(article).getByText(/참고 이미지 · 실제 서비스 화면이 아닙니다/),
+      ).toBeInTheDocument();
     }
     const link = within(article).getByRole('link');
     expect(link).toHaveAttribute('href', `#/project/${project.id}`);
@@ -35,25 +48,38 @@ test('work navigation scrolls without replacing the HashRouter route', () => {
   const work = document.getElementById('work');
   work.scrollIntoView = vi.fn();
   const originalHash = window.location.hash;
-  fireEvent.click(within(screen.getByRole('navigation')).getByRole('link', { name: 'WORK' }));
+  fireEvent.click(
+    within(screen.getByRole('navigation')).getByRole('link', { name: 'WORK' }),
+  );
   expect(work.scrollIntoView).toHaveBeenCalledWith({ block: 'start' });
   expect(window.location.hash).toBe(originalHash);
-  expect(screen.getByRole('heading', { name: 'SELECTED WORKS' })).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { name: 'SELECTED WORKS' }),
+  ).toBeInTheDocument();
 });
 
 test('renders subsequent sections and the original contact email', () => {
   render(<App />);
-  ['DESIGN & IMPLEMENTATION', 'PROJECT PREVIEW', 'PROJECT ARCHIVE', 'CONTACT'].forEach(name => {
+  [
+    'DESIGN & IMPLEMENTATION',
+    'PROJECT PREVIEW',
+    'PROJECT ARCHIVE',
+    'CONTACT',
+  ].forEach((name) => {
     expect(screen.getByRole('heading', { name })).toBeInTheDocument();
   });
-  expect(screen.getByRole('link', { name: /jyin2205@naver.com/ })).toHaveAttribute('href', 'mailto:jyin2205@naver.com');
+  expect(
+    screen.getByRole('link', { name: /jyin2205@naver.com/ }),
+  ).toHaveAttribute('href', 'mailto:jyin2205@naver.com');
 });
 
 test('direct project route renders a data-driven case study and preserved Notion link', () => {
   const project = projectData[0];
   window.history.replaceState(null, '', `/#/project/${project.id}`);
   render(<App />);
-  expect(screen.getByRole('heading', { level: 1, name: project.title })).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { level: 1, name: project.title }),
+  ).toBeInTheDocument();
   expect(screen.getByText('OVERVIEW')).toBeInTheDocument();
   expect(screen.getByText('KEY WORK')).toBeInTheDocument();
   expect(screen.getByText('ROLE', { selector: 'summary' })).toBeInTheDocument();
@@ -62,54 +88,103 @@ test('direct project route renders a data-driven case study and preserved Notion
   expect(document.title).toBe(`${project.title} — JIYU.`);
   expect(screen.getByText(project.period)).toBeInTheDocument();
   expect(screen.getByText('개인 프로젝트')).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /퍼블리싱 화면 보기/ })).toHaveAttribute('href', project.liveUrl);
-  expect(screen.getByRole('link', { name: /NOTION에서/ })).toHaveAttribute('href', project.url);
-  expect(screen.getByRole('link', { name: /BACK TO WORK/ })).toHaveAttribute('href', '#/');
+  expect(
+    screen.getByRole('link', { name: /퍼블리싱 화면 보기/ }),
+  ).toHaveAttribute('href', project.liveUrl);
+  expect(screen.getByRole('link', { name: /NOTION에서/ })).toHaveAttribute(
+    'href',
+    project.url,
+  );
+  expect(screen.getByRole('link', { name: /BACK TO WORK/ })).toHaveAttribute(
+    'href',
+    '#/',
+  );
 });
 
 test('unknown project route offers recovery', () => {
   window.history.replaceState(null, '', '/#/project/missing');
   render(<App />);
-  expect(screen.getByRole('heading', { name: 'PROJECT NOT FOUND.' })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /BACK TO WORK/ })).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { name: 'PROJECT NOT FOUND.' }),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole('link', { name: /BACK TO WORK/ }),
+  ).toBeInTheDocument();
 });
 
 test('legacy finance bookmark resolves to the current case study', async () => {
   window.history.replaceState(null, '', '/#/projectFinance');
   render(<App />);
-  expect(await screen.findByRole('heading', { level: 1, name: 'PERSONAL FINANCE' })).toBeInTheDocument();
+  expect(
+    await screen.findByRole('heading', { level: 1, name: 'PERSONAL FINANCE' }),
+  ).toBeInTheDocument();
   expect(window.location.hash).toBe('#/project/personal-finance');
 });
 
 test('unknown page route offers a home link', () => {
   window.history.replaceState(null, '', '/#/missing-page');
   render(<App />);
-  expect(screen.getByRole('heading', { name: 'PAGE NOT FOUND.' })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /BACK TO HOME/ })).toHaveAttribute('href', '#/');
+  expect(
+    screen.getByRole('heading', { name: 'PAGE NOT FOUND.' }),
+  ).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /BACK TO HOME/ })).toHaveAttribute(
+    'href',
+    '#/',
+  );
 });
-
 
 test('public version omits unverified statistics, timeline dates and reference visual archive', () => {
   render(<App />);
   expect(screen.queryByText('50+')).not.toBeInTheDocument();
   expect(screen.queryByText('6')).not.toBeInTheDocument();
-  expect(screen.queryByRole('heading', { name: 'SELECTED VISUALS' })).not.toBeInTheDocument();
-  expect(document.querySelector('#experience .years')).toBeNull();
+  expect(
+    screen.queryByRole('heading', { name: 'SELECTED VISUALS' }),
+  ).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole('heading', { name: 'EXPERIENCE' }),
+  ).not.toBeInTheDocument();
 });
 
-test.each([null, undefined, '', [], {}])('detail hides empty data (%j) without empty labels or render errors', value => {
-  const project = { id: 'empty-data-check', title: 'EMPTY DATA CHECK', subtitle: '검증', roles: value, skills: value, year: value, period: value, overview: value, keyWork: value, design: value, implementation: value, result: value, heroImage: value, liveUrl: value, url: value };
-  projectData.push(project);
-  try {
-    window.history.replaceState(null, '', '/#/project/empty-data-check');
-    render(<App />);
-    expect(screen.getByRole('heading', { name: 'EMPTY DATA CHECK' })).toBeInTheDocument();
-    expect(document.querySelector('details')).toBeNull();
-    expect(document.querySelector('.metadata')).toBeNull();
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
-    expect(screen.queryByText(/N\/A|TBD|TODO|Coming Soon/)).not.toBeInTheDocument();
-  } finally { projectData.pop(); }
-});
+test.each([null, undefined, '', [], {}])(
+  'detail hides empty data (%j) without empty labels or render errors',
+  (value) => {
+    const project = {
+      id: 'empty-data-check',
+      title: 'EMPTY DATA CHECK',
+      subtitle: '검증',
+      roles: value,
+      skills: value,
+      year: value,
+      period: value,
+      overview: value,
+      keyWork: value,
+      design: value,
+      implementation: value,
+      result: value,
+      heroImage: value,
+      liveUrl: value,
+      url: value,
+    };
+    projectData.push(project);
+    try {
+      window.history.replaceState(null, '', '/#/project/empty-data-check');
+      render(<App />);
+      expect(
+        screen.getByRole('heading', { name: 'EMPTY DATA CHECK' }),
+      ).toBeInTheDocument();
+      expect(document.querySelector('details')).toBeNull();
+      ['ROLE', 'PERIOD', 'TOOLS'].forEach((label) =>
+        expect(screen.queryByText(label)).not.toBeInTheDocument(),
+      );
+      expect(screen.queryByRole('img')).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/N\/A|TBD|TODO|Coming Soon/),
+      ).not.toBeInTheDocument();
+    } finally {
+      projectData.pop();
+    }
+  },
+);
 
 test('project without a thumbnail shows an explicit preview rather than a broken image', () => {
   const original = projectData[0].thumbnail;
@@ -118,8 +193,13 @@ test('project without a thumbnail shows an explicit preview rather than a broken
     render(<App />);
     const article = screen.getByRole('article', { name: projectData[0].title });
     expect(within(article).queryByRole('img')).not.toBeInTheDocument();
-    expect(within(article).getByText('LAYOUT PREVIEW · 실제 작업 화면 아님')).toBeInTheDocument();
-    expect(within(article).getByRole('link')).toHaveAttribute('href', `#/project/${projectData[0].id}`);
+    expect(
+      within(article).getByText('LAYOUT PREVIEW · 실제 작업 화면 아님'),
+    ).toBeInTheDocument();
+    expect(within(article).getByRole('link')).toHaveAttribute(
+      'href',
+      `#/project/${projectData[0].id}`,
+    );
   } finally {
     projectData[0].thumbnail = original;
   }

@@ -1,95 +1,108 @@
+import { containerLayout } from './Common.styles';
 import styled from 'styled-components';
+export const ArchiveRow = styled.a``;
+export const ArchiveIndex = styled.span``;
+export const ArchiveTitle = styled.span``;
+export const ArchiveRole = styled.span``;
+export const ArchiveYear = styled.span``;
+export const ArchiveType = styled.span``;
+export const ArchiveArrow = styled.span``;
+
 export const Archive = styled.section`
+  ${containerLayout};
   padding-block: 100px;
   border-top: 1px solid var(--line);
   h2 {
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(36px, 5vw, ${({ theme }) => theme.spacing.xxl});
     letter-spacing: -0.05em;
     font-weight: 650;
-    margin-bottom: 48px;
+    margin-bottom: ${({ theme }) => theme.spacing.xl};
   }
-  .archive-row {
+  ${ArchiveRow} {
     display: grid;
     grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1.2fr) 90px 100px 20px;
-    gap: 24px;
+    gap: ${({ theme }) => theme.spacing.md};
     padding-block: 28px;
     border-top: 1px solid var(--line);
     align-items: center;
-    min-height: 72px;
+    min-height: var(--header-height);
     transition: background 0.5s;
   }
-  .archive-index {
+  ${ArchiveIndex} {
     grid-column: 1;
     grid-row: 1;
   }
-  .archive-title {
+  ${ArchiveTitle} {
     grid-column: 2;
     grid-row: 1;
   }
-  .archive-role {
+  ${ArchiveRole} {
     grid-column: 3;
     grid-row: 1;
   }
-  .archive-year {
+  ${ArchiveYear} {
     grid-column: 4;
     grid-row: 1;
   }
-  .archive-type {
+  ${ArchiveType} {
     grid-column: 5;
     grid-row: 1;
   }
-  .archive-arrow {
+  ${ArchiveArrow} {
     grid-column: 6;
     grid-row: 1;
   }
-  .archive-row:hover,
-  .archive-row:focus-visible {
+  ${ArchiveRow}:hover,
+  ${ArchiveRow}:focus-visible {
     background: var(--surface);
   }
-  .archive-index,
-  .archive-role,
-  .archive-year,
-  .archive-type {
+  ${ArchiveIndex},
+  ${ArchiveRole},
+  ${ArchiveYear},
+  ${ArchiveType} {
     font-size: 12px;
     color: var(--text-muted);
   }
-  .archive-title {
+  ${ArchiveTitle} {
     font-size: 18px;
     font-weight: 600;
     overflow-wrap: anywhere;
   }
-  @media (max-width: 1199px) {
-    .archive-row {
-      gap: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    ${ArchiveRow} {
+      gap: ${({ theme }) => theme.spacing.sm};
       grid-template-columns: 30px minmax(0, 2fr) minmax(0, 1fr) 80px 20px;
     }
-    .archive-arrow {
+    ${ArchiveArrow} {
       grid-column: 5;
     }
-    .archive-type {
+    ${ArchiveType} {
       display: none;
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding-block: 80px;
-    .archive-row {
-      grid-template-columns: 24px minmax(0, 1fr) 20px;
+    ${ArchiveRow} {
+      grid-template-columns: ${({ theme }) => theme.spacing.md} minmax(
+          0,
+          1fr
+        ) 20px;
       gap: 12px;
     }
-    .archive-role,
-    .archive-year {
+    ${ArchiveRole},
+    ${ArchiveYear} {
       grid-column: 2;
       grid-row: 2;
     }
-    .archive-role + .archive-year {
+    ${ArchiveRole} + ${ArchiveYear} {
       grid-row: 3;
     }
-    .archive-arrow {
+    ${ArchiveArrow} {
       grid-column: 3;
       grid-row: 1;
     }
-    .archive-title {
-      font-size: 16px;
+    ${ArchiveTitle} {
+      font-size: var(--type-body);
     }
   }
 `;

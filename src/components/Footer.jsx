@@ -1,16 +1,15 @@
+import { FooterInner, Root } from './styles/Footer.styles';
 import { siteData } from '../data/siteData';
-import { Root } from './styles/Footer.styles';
 import { profileData } from '../data/profileData';
-
 export default function Footer() {
   return (
-    <Root className="container">
-      <div className="inner">
+    <Root>
+      <FooterInner>
         <span>
           © {new Date().getFullYear()} {profileData.name}.
         </span>
         <span>{siteData.footer.role}</span>
-      </div>
+      </FooterInner>
     </Root>
   );
 }

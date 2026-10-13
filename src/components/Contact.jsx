@@ -1,57 +1,63 @@
+import {
+  ContactSectionLabel,
+  ContactStatement,
+  ContactDescription,
+  ContactLinks,
+  ContactLink,
+  ContactLabel,
+  ContactValue,
+  Root,
+} from './styles/Contact.styles';
 import { scrollPortfolioData } from '../data/scrollPortfolioData';
 import TextLines from './TextLines';
 import { siteData } from '../data/siteData';
-import { Root } from './styles/Contact.styles';
 import { profileData } from '../data/profileData';
-
 export default function Contact() {
   return (
-    <Root id="contact" className="container" aria-labelledby="contact-title">
-      <h2 className="section-label" id="contact-title">
+    <Root id="contact" aria-labelledby="contact-title">
+      <ContactSectionLabel id="contact-title">
         {siteData.contact.title}
-      </h2>
-      <p className="statement">
+      </ContactSectionLabel>
+      <ContactStatement>
         <TextLines lines={siteData.contact.statement} />
-      </p>
-      <p className="contact-description">
+      </ContactStatement>
+      <ContactDescription>
         {scrollPortfolioData.contactDescription}
-      </p>
-      <div className="contacts">
+      </ContactDescription>
+      <ContactLinks>
         {profileData.email && (
-          <a className="contact-link" href={`mailto:${profileData.email}`}>
+          <ContactLink href={`mailto:${profileData.email}`}>
             <span>
-              <span className="label">{siteData.contact.emailLabel}</span>
-              <span className="value">{profileData.email}</span>
+              <ContactLabel>{siteData.contact.emailLabel}</ContactLabel>
+              <ContactValue>{profileData.email}</ContactValue>
             </span>
             <span aria-hidden="true">↗</span>
-          </a>
+          </ContactLink>
         )}
         {profileData.github && (
-          <a
-            className="contact-link"
+          <ContactLink
             href={profileData.github}
             target="_blank"
             rel="noopener noreferrer"
           >
             <span>
-              <span className="label">{siteData.contact.githubLabel}</span>
-              <span className="value">{profileData.githubLabel}</span>
+              <ContactLabel>{siteData.contact.githubLabel}</ContactLabel>
+              <ContactValue>{profileData.githubLabel}</ContactValue>
             </span>
             <span aria-hidden="true">↗</span>
-          </a>
+          </ContactLink>
         )}
         {profileData.resumeUrl && (
-          <a
-            className="contact-link"
+          <ContactLink
             href={profileData.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
             {scrollPortfolioData.resumeLabel}
             <span aria-hidden="true">↗</span>
-          </a>
+          </ContactLink>
         )}
-      </div>
+      </ContactLinks>
     </Root>
   );
 }

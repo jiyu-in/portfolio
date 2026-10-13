@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+export const ImageFrame = styled.div``;
 
 export const Root = styled.figure`
   margin: 0;
-  .image-frame {
+  ${ImageFrame} {
     background: var(--surface);
     overflow: hidden;
   }

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
 export default function NotFound() {
   useEffect(() => {
     document.title = siteData.notFound.documentTitle;
@@ -13,7 +12,7 @@ export default function NotFound() {
   return (
     <>
       <Header detail />
-      <Root className="container">
+      <Root>
         <h1>{siteData.notFound.title}</h1>
         <p>{siteData.notFound.description}</p>
         <Link to="/">{siteData.notFound.back}</Link>

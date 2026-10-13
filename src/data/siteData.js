@@ -1,3 +1,4 @@
+// Site copy and labels. Project and profile facts remain in their own data files.
 export const siteData = {
   brand: 'JIYU.',
   homeTitle: 'JIYU. — UI/UX Designer & Publisher',

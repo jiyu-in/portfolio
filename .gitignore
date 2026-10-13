@@ -137,3 +137,6 @@ dist
 
 # Local validation and build tool cache
 .vite/
+
+# Legacy generated output
+build/

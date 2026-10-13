@@ -1,18 +1,34 @@
+import { containerLayout, linkStyle } from './Common.styles';
+import ProjectImage from '../ProjectImage';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+export const ProjectBack = styled(Link)`
+  ${linkStyle};
+`;
+export const ProjectSubtitle = styled.p``;
+export const ProjectMetadata = styled.div``;
+export const ProjectHeroImage = styled(ProjectImage)``;
+export const ProjectNumber = styled.span``;
+export const ProjectContent = styled.div``;
+export const ProjectDesignVisual = styled.figure``;
+export const ProjectOriginal = styled.a`
+  ${linkStyle};
+`;
 
 export const Root = styled.main`
-  padding-top: 64px;
+  ${containerLayout};
+  padding-top: ${({ theme }) => theme.spacing.xxl};
   padding-bottom: 120px;
-  .back {
+  ${ProjectBack} {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    margin-bottom: 64px;
+    margin-bottom: ${({ theme }) => theme.spacing.xxl};
     font-size: 12px;
     font-weight: 700;
   }
-  .back:hover,
-  .original:hover {
+  ${ProjectBack}:hover,
+  ${ProjectOriginal}:hover {
     color: var(--accent-text);
   }
   h1 {
@@ -22,29 +38,29 @@ export const Root = styled.main`
     overflow-wrap: anywhere;
     text-wrap: balance;
   }
-  .subtitle {
+  ${ProjectSubtitle} {
     margin-top: 20px;
     font-size: 22px;
   }
-  .metadata {
+  ${ProjectMetadata} {
     display: flex;
     justify-content: space-between;
-    gap: 24px;
+    gap: ${({ theme }) => theme.spacing.md};
     margin-block: 40px;
     font-size: 14px;
   }
-  .metadata p {
+  ${ProjectMetadata} p {
     max-width: 600px;
   }
-  .metadata strong {
+  ${ProjectMetadata} strong {
     display: block;
     font-size: 12px;
-    margin-bottom: 8px;
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
   }
-  .hero-image {
-    margin-bottom: 64px;
+  ${ProjectHeroImage} {
+    margin-bottom: ${({ theme }) => theme.spacing.xxl};
   }
-  .hero-image img {
+  ${ProjectHeroImage} img {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
@@ -61,7 +77,7 @@ export const Root = styled.main`
     cursor: pointer;
     padding-block: 28px;
     display: flex;
-    gap: 32px;
+    gap: ${({ theme }) => theme.spacing.lg};
     align-items: center;
     list-style: none;
     font-size: 22px;
@@ -78,32 +94,32 @@ export const Root = styled.main`
   details[open] summary::after {
     content: '−';
   }
-  .number {
+  ${ProjectNumber} {
     color: var(--accent-text);
     font-size: 13px;
   }
-  .content {
+  ${ProjectContent} {
     max-width: 800px;
     margin-left: 54px;
-    padding-bottom: 32px;
+    padding-bottom: ${({ theme }) => theme.spacing.lg};
     white-space: pre-line;
     word-break: keep-all;
   }
-  .content ul {
+  ${ProjectContent} ul {
     margin: 0;
     padding-left: 20px;
   }
-  .content li + li {
-    margin-top: 8px;
+  ${ProjectContent} li + li {
+    margin-top: ${({ theme }) => theme.spacing.xs};
   }
-  .design-visual {
+  ${ProjectDesignVisual} {
     margin: 40px 0;
   }
-  .design-visual img {
+  ${ProjectDesignVisual} img {
     width: 100%;
     height: auto;
   }
-  .original {
+  ${ProjectOriginal} {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
@@ -115,27 +131,27 @@ export const Root = styled.main`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding-top: 40px;
     padding-bottom: 80px;
-    .back {
+    ${ProjectBack} {
       margin-bottom: 40px;
     }
-    .subtitle {
+    ${ProjectSubtitle} {
       font-size: 18px;
     }
-    .metadata {
+    ${ProjectMetadata} {
       flex-direction: column;
-      margin-block: 32px;
+      margin-block: ${({ theme }) => theme.spacing.lg};
     }
-    .hero-image {
+    ${ProjectHeroImage} {
       margin-bottom: 40px;
     }
-    .hero-image img {
+    ${ProjectHeroImage} img {
       aspect-ratio: 4 / 3;
     }
     summary {
       gap: 20px;
       font-size: 18px;
     }
-    .content {
+    ${ProjectContent} {
       margin-left: 0;
     }
   }

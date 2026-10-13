@@ -1,5 +1,22 @@
+import { linkStyle } from './Common.styles';
+import { ImageFrame } from './ProjectImage.styles';
+import { Link } from 'react-router-dom';
+import ProjectImage from '../ProjectImage';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+export const CardImage = styled(ProjectImage)``;
+
+export const ProjectCopy = styled.div``;
+export const CardMetadata = styled.div``;
+export const CardNumber = styled.span``;
+export const CardSubtitle = styled.p``;
+export const CardRoles = styled.p``;
+export const CardDescription = styled.p``;
+export const CardDescription2 = styled.p``;
+export const CardLink = styled(Link)`
+  ${linkStyle};
+`;
+
 export const Root = styled(motion.article)`
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -17,14 +34,14 @@ export const Root = styled(motion.article)`
     outline: 2px solid var(--accent);
     outline-offset: 5px;
   }
-  .image {
+  ${CardImage} {
     margin: 0;
     padding: 0;
   }
-  .image .image-frame {
+  ${CardImage} ${ImageFrame} {
     overflow: hidden;
   }
-  .image img {
+  ${CardImage} img {
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
@@ -32,12 +49,12 @@ export const Root = styled(motion.article)`
     filter: ${({ $reference }) => ($reference ? 'grayscale(1)' : 'none')};
     transition: transform 0.6s ease;
   }
-  &:hover .image img,
-  &:focus-within .image img {
+  &:hover ${CardImage} img,
+  &:focus-within ${CardImage} img {
     transform: scale(1.02);
   }
-  .project-copy {
-    padding: 32px;
+  ${ProjectCopy} {
+    padding: ${({ theme }) => theme.spacing.lg};
   }
   h3 {
     font-size: var(--type-project);
@@ -46,59 +63,45 @@ export const Root = styled(motion.article)`
     letter-spacing: -0.045em;
     overflow-wrap: anywhere;
   }
-  .metadata {
+  ${CardMetadata} {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     font-size: 12px;
-    margin-bottom: 16px;
+    margin-bottom: ${({ theme }) => theme.spacing.sm};
     color: var(--text-muted);
   }
-  .number {
+  ${CardNumber} {
     color: var(--accent-text);
   }
-  .subtitle {
+  ${CardSubtitle} {
     font-size: 14px;
     margin-top: 12px;
     color: var(--text-muted);
   }
-  .role-line {
+  ${CardRoles} {
     font-size: 12px;
     color: var(--text-muted);
     margin-top: 20px;
     line-height: 1.7;
   }
-  .role-line span {
+  ${CardRoles} span {
     display: block;
   }
-  .description {
-    font-size: 15px;
+  ${CardDescription} {
+    font-size: 14px;
+    font-weight: 600;
     color: var(--text-muted);
     margin-top: 20px;
-    letter-spacing: -0.02em;
-    line-height: 1.45;
     word-break: keep-all;
   }
-  .key-work {
-    margin-top: 0.5rem;
-    margin-bottom: 20px;
-  }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 24px 0;
-  }
-  .tags li {
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 4px 10px;
-    font-size: 11px;
+  ${CardDescription2} {
+    font-size: 14px;
     color: var(--text-muted);
+    margin: 0.5rem 0 20px;
+    word-break: keep-all;
   }
-  .view {
+  ${CardLink} {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
@@ -106,23 +109,23 @@ export const Root = styled(motion.article)`
     font-size: 12px;
     font-weight: 600;
   }
-  .view::after {
+  ${CardLink}::after {
     content: '';
     position: absolute;
     inset: 0;
   }
-  .view span {
+  ${CardLink} span {
     transition: transform 0.6s;
   }
-  &:hover .view span {
+  &:hover ${CardLink} span {
     transform: translateX(3px);
   }
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
-    .project-copy {
-      padding: 24px;
+    ${ProjectCopy} {
+      padding: ${({ theme }) => theme.spacing.md};
     }
-    .image {
+    ${CardImage} {
       padding: 0;
     }
   }

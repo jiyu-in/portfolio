@@ -1,7 +1,7 @@
+import { SkipLink } from '../components/styles/Common.styles';
 import { siteData } from '../data/siteData';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import SectionLink from '../components/SectionLink';
 import Header from '../components/Header';
 import HeroIntro from '../components/HeroIntro';
 import ScrollStorySection from '../components/ScrollStorySection';
@@ -28,9 +28,7 @@ export default function Home() {
   }, [location]);
   return (
     <div id="top">
-      <SectionLink className="skip-link" href="#main">
-        {siteData.skipLink}
-      </SectionLink>
+      <SkipLink href="#main">{siteData.skipLink}</SkipLink>
       <Header />
       <main id="main" tabIndex={-1}>
         <HeroIntro />

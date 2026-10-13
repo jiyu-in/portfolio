@@ -1,11 +1,18 @@
+import { containerLayout } from './Common.styles';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+export const StaticScene = styled.div``;
+export const StaticMessage = styled.div`
+  ${containerLayout};
+`;
+export const StaticCaption = styled.p``;
+
 export const SceneSection = styled.section`
   position: relative;
   height: ${({ $count }) => ($count + 1) * 100}svh;
   background: #000;
   color: #fff;
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     height: ${({ $count }) => $count * 100}svh;
   }
 `;
@@ -33,6 +40,7 @@ export const SceneImage = styled(motion.div)`
   }
 `;
 export const SceneMessage = styled(motion.div)`
+  ${containerLayout};
   position: absolute;
   inset: 0;
   display: flex;
@@ -49,40 +57,41 @@ export const SceneMessage = styled(motion.div)`
   }
   p {
     font-size: 18px;
-    margin-top: 24px;
+    margin-top: ${({ theme }) => theme.spacing.md};
   }
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     h3 {
       font-size: clamp(34px, 9vw, 58px);
     }
     p {
-      font-size: 16px;
+      font-size: var(--type-body);
     }
   }
 `;
 export const SceneCaption = styled.div`
+  ${containerLayout};
   position: absolute;
   inset: auto 0 36px;
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: ${({ theme }) => theme.spacing.md};
   font-size: 12px;
   color: #fff;
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
-    gap: 8px;
-    bottom: 24px;
+    gap: ${({ theme }) => theme.spacing.xs};
+    bottom: ${({ theme }) => theme.spacing.md};
   }
 `;
 export const StaticScenes = styled.section`
   background: #000;
   color: #fff;
-  .static-scene {
+  ${StaticScene} {
     position: relative;
     min-height: 70svh;
     overflow: hidden;
   }
-  .static-message {
+  ${StaticMessage} {
     position: relative;
     padding-block: 120px 80px;
   }
@@ -93,10 +102,10 @@ export const StaticScenes = styled.section`
     overflow-wrap: anywhere;
   }
   p {
-    margin-top: 24px;
+    margin-top: ${({ theme }) => theme.spacing.md};
   }
-  .static-caption {
+  ${StaticCaption} {
     font-size: 12px;
-    margin-top: 48px;
+    margin-top: ${({ theme }) => theme.spacing.xl};
   }
 `;

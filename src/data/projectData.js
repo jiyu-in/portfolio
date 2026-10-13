@@ -1,5 +1,4 @@
 import { projectData as originalProjects } from '../projects/data/projectData';
-
 // Current images are existing reference photos, not verified service screenshots.
 // Replace thumbnail and heroImage with actual UI captures before publication.
 // Original assets and live Notion links are retained. Confirm years and
@@ -10,32 +9,30 @@ const selection = [
     id: 'personal-finance',
     title: 'PERSONAL FINANCE',
     subtitle: '개인자산관리',
-    description: '부동산과 금융 정보를 연결하는 개인 자산관리 대시보드 디자인.',
+    description: '부동산과 금융 정보를 연결하는 개인 자산관리 대시보드 디자인',
   },
   {
     source: 'ProjectCryptoExchange',
     id: 'crypto-exchange',
     title: 'CRYPTO EXCHANGE',
     subtitle: '가상화폐거래소 UI/UX',
-    description: '복잡한 거래 정보를 정리하는 디지털 금융 인터페이스.',
+    description: '복잡한 거래 정보를 정리하는 디지털 금융 인터페이스',
   },
   {
     source: 'OnlineEduSystem',
     id: 'learning-platform',
     title: 'LEARNING PLATFORM',
     subtitle: '비대면 학습관리시스템',
-    description: '온라인 학습을 위한 교육 서비스 인터페이스.',
+    description: '온라인 학습을 위한 교육 서비스 인터페이스',
   },
   {
     source: 'SnuDeptRenewal',
     id: 'snu-renewal',
     title: 'SNU DEPARTMENT',
     subtitle: '서울대학교 학과 페이지 리뉴얼',
-    description: '학과의 정보를 전달하는 대학 웹사이트 리뉴얼.',
+    description: '학과의 정보를 전달하는 대학 웹사이트 리뉴얼',
   },
 ];
-// Reused and condensed from the existing ProjectFinance page.
-// Expected benefits are not presented as measured results.
 const caseStudies = {
   'personal-finance': {
     year: '2025',

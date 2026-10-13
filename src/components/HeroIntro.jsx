@@ -1,50 +1,62 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { scrollPortfolioData } from '../data/scrollPortfolioData';
-import { heroData } from '../data/heroData';
 import {
-  Intro,
-  IntroTitle,
+  IntroName,
+  IntroRole,
+  IntroBottom,
   IntroMeta,
+  Intro,
+  IntroContent,
+  IntroGreeting,
+  IntroTitle,
+  IntroIdentity,
+  IntroDescription,
   IntroScroll,
 } from './styles/HeroIntro.styles';
+import { useRef } from 'react';
+import { useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { scrollPortfolioData } from '../data/scrollPortfolioData';
+import { heroData } from '../data/heroData';
+import TextReveal from './TextReveal';
 export default function HeroIntro() {
+  const ref = useRef(null);
   const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -48]);
+  const opacity = useTransform(scrollYProgress, [0, 0.35, 0.85], [1, 1, 0]);
+  const copy = scrollPortfolioData.heroIdentity;
   return (
-    <Intro id="hero" className="container" aria-labelledby="hero-title">
-      <div>
-        <p className="meta">{heroData.eyebrow}</p>
-        <IntroTitle
-          id="hero-title"
-          initial={reduce ? false : { opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {scrollPortfolioData.title.map((line) => (
-            <span key={line}>{line}</span>
+    <Intro ref={ref} id="hero" aria-labelledby="hero-title">
+      <IntroContent style={reduce ? undefined : { y, opacity }}>
+        <IntroGreeting>
+          <TextReveal>{copy.greeting}</TextReveal>
+        </IntroGreeting>
+        <IntroTitle id="hero-title">
+          {scrollPortfolioData.title.map((line, index) => (
+            <TextReveal key={line} delay={0.18 + index * 0.1}>
+              {line}
+            </TextReveal>
           ))}
         </IntroTitle>
-        <IntroMeta
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: reduce ? 0 : 0.08 }}
-        >
-          {scrollPortfolioData.disciplines}
-        </IntroMeta>
-        <p className="description">{scrollPortfolioData.description}</p>
-      </div>
-      <div className="intro-bottom">
-        <p className="meta">{heroData.edition}</p>
+        <IntroIdentity>
+          <IntroName>
+            <TextReveal delay={0.46}>{copy.name}</TextReveal>
+          </IntroName>
+          <IntroRole>
+            <TextReveal delay={0.56}>{copy.role}</TextReveal>
+          </IntroRole>
+        </IntroIdentity>
+        <IntroDescription>
+          <TextReveal delay={0.7}>{copy.description}</TextReveal>
+        </IntroDescription>
+      </IntroContent>
+      <IntroBottom>
+        <IntroMeta>{heroData.edition}</IntroMeta>
         <IntroScroll href="#story" aria-label="스크롤 스토리로 이동">
-          SCROLL{' '}
-          <motion.span
-            aria-hidden="true"
-            animate={reduce ? undefined : { y: [0, 3, 0] }}
-            transition={{ duration: 0.8, repeat: 1, delay: 0.7 }}
-          >
-            ↓
-          </motion.span>
+          SCROLL <span aria-hidden="true">↓</span>
         </IntroScroll>
-      </div>
+      </IntroBottom>
     </Intro>
   );
 }

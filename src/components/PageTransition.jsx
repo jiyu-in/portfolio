@@ -4,7 +4,6 @@ import Home from '../pages/Home';
 import Project from '../pages/Project';
 import NotFound from '../pages/NotFound';
 import { PageSurface } from './styles/PageTransition.styles';
-
 function TransitionSurface({ children }) {
   const reduceMotion = useReducedMotion();
   const present = useIsPresent();

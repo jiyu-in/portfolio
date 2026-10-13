@@ -1,11 +1,21 @@
+import {
+  CardImage,
+  ProjectCopy,
+  CardMetadata,
+  CardNumber,
+  CardSubtitle,
+  CardRoles,
+  CardDescription,
+  CardDescription2,
+  CardLink,
+  Root,
+} from './styles/ProjectCard.styles';
 import ProjectPlaceholder from './ProjectPlaceholder';
 import { useReducedMotion } from 'framer-motion';
 import { siteData } from '../data/siteData';
-import { Root } from './styles/ProjectCard.styles';
-import { Link } from 'react-router-dom';
+
 import ProjectImage from './ProjectImage';
 import { contentText, contentList } from '../data/contentUtils';
-
 export default function ProjectCard({ project }) {
   const reduceMotion = useReducedMotion();
   const canReveal =
@@ -20,47 +30,48 @@ export default function ProjectCard({ project }) {
       viewport={{ once: true, amount: 0.12 }}
       whileHover={undefined}
       transition={{ duration: 0.6, ease: 'easeOut' }}
+      data-cursor="View"
       $reference={project.imageKind === 'reference'}
       $hasImage={Boolean(contentText(project.thumbnail))}
       aria-labelledby={`project-${project.id}`}
     >
       {contentText(project.thumbnail) ? (
-        <ProjectImage className="image" project={project} />
+        <CardImage project={project} />
       ) : (
-        <ProjectPlaceholder project={project} className="image" />
+        <CardImage as={ProjectPlaceholder} project={project} />
       )}
-      <div className="project-copy">
-        <div className="metadata">
-          <span className="number">/{project.index}</span>
-        </div>
+      <ProjectCopy>
+        <CardMetadata>
+          <CardNumber>/{project.index}</CardNumber>
+        </CardMetadata>
         <h3 id={`project-${project.id}`}>{project.title}</h3>
-        <p className="subtitle">
+        <CardSubtitle>
           {project.subtitle}
           {contentText(project.projectType) && ` · ${project.projectType}`}
-        </p>
+        </CardSubtitle>
         {(roles.length > 0 || period || skills.length > 0) && (
-          <p className="role-line">
+          <CardRoles>
             {roles.length > 0 && <span>{roles.join(' / ')}</span>}
             {period && <span>{period}</span>}
             {skills.length > 0 && <span>{skills.join(' / ')}</span>}
-          </p>
+          </CardRoles>
         )}
         {contentText(project.description) && (
-          <p className="description">{project.description}</p>
+          <CardDescription>{project.description}</CardDescription>
         )}
         {contentList(project.keyWork).length > 0 && (
-          <p className="description key-work">
+          <CardDescription2>
             {contentList(project.keyWork).slice(0, 2).join(' · ')}
-          </p>
+          </CardDescription2>
         )}
-        <Link
-          className="view"
+        <CardLink
+          data-cursor="View"
           to={`/project/${project.id}`}
           aria-label={`${project.subtitle} ${siteData.works.linkSuffix}`}
         >
           {siteData.works.link} <span aria-hidden="true">↗</span>
-        </Link>
-      </div>
+        </CardLink>
+      </ProjectCopy>
     </Root>
   );
 }

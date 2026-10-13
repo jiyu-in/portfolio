@@ -1,8 +1,13 @@
 import { contentList } from './contentUtils';
 import { projectData } from './projectData';
 import { projectData as originalProjects } from '../projects/data/projectData';
-
 export const scrollPortfolioData = {
+  heroIdentity: {
+    greeting: 'Hello, I’m Jiyu.',
+    name: 'Jiyu,',
+    role: 'UI/UX Designer & Publisher',
+    description: '사용자의 흐름을 설계하고, 화면으로 구현합니다.',
+  },
   title: ['Designing Interfaces,', 'Building Experiences.'],
   disciplines: 'UI/UX Design · Publishing · Interaction',
   description:

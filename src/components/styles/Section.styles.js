@@ -1,24 +1,8 @@
 import styled from 'styled-components';
-
 export const Section = styled.section`
-  padding-block: 80px;
+  padding-block: ${({ theme }) => theme.spacing.section};
   border-top: 1px solid var(--line);
-  .section-label {
-    margin-bottom: 56px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .statement {
-    font-size: var(--type-section);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.06em;
-  }
-  @media (max-width: 767px) {
-    padding-block: 48px;
-    .section-label {
-      margin-bottom: 36px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding-block: ${({ theme }) => theme.spacing.xxl};
   }
 `;

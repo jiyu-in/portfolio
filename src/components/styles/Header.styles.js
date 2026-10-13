@@ -1,26 +1,30 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+export const HeaderInner = styled.div``;
+export const HeaderLogo = styled(Link)``;
+export const HeaderEdition = styled.span``;
 
 export const Root = styled.header`
   position: sticky;
   top: 0;
   z-index: 20;
   background: var(--background);
-  .inner {
-    min-height: 72px;
+  ${HeaderInner} {
+    min-height: var(--header-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: ${({ theme }) => theme.spacing.md};
     border-bottom: 1px solid var(--line);
   }
-  .logo {
+  ${HeaderLogo} {
     font-size: 26px;
     font-weight: 800;
     letter-spacing: -1.5px;
   }
   nav {
     display: flex;
-    gap: 32px;
+    gap: ${({ theme }) => theme.spacing.lg};
     align-items: center;
   }
   nav a {
@@ -36,7 +40,7 @@ export const Root = styled.header`
   nav a:hover {
     color: var(--accent-text);
   }
-  .edition {
+  ${HeaderEdition} {
     font-size: 12px;
     color: var(--text-muted);
   }
@@ -50,12 +54,12 @@ export const Root = styled.header`
     cursor: pointer;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    .edition {
+    ${HeaderEdition} {
       display: none;
     }
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    .inner {
+    ${HeaderInner} {
       flex-wrap: wrap;
       gap: 0;
     }
@@ -68,7 +72,7 @@ export const Root = styled.header`
       flex-direction: column;
       align-items: stretch;
       gap: 0;
-      padding-block: 8px 20px;
+      padding-block: ${({ theme }) => theme.spacing.xs} 20px;
     }
     nav a {
       padding-block: 12px;

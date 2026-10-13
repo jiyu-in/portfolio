@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 export const Root = styled.div`
   display: flex;
   align-items: baseline;
@@ -24,7 +23,7 @@ export const Root = styled.div`
       max-width: 260px;
     }
     span {
-      padding-top: 8px;
+      padding-top: ${({ theme }) => theme.spacing.xs};
     }
   }
 `;

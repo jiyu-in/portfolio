@@ -1,5 +1,4 @@
 import { Root } from './styles/SectionTitle.styles';
-
 export default function SectionTitle({ id, children, count }) {
   return (
     <Root>
