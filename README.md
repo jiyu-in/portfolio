@@ -2,6 +2,6 @@
 
 [Download ZIP](https://github.com/jiyu-in/portfolio/raw/refs/heads/portfolio-renewal-download/portfolio-renewal.zip)
 
-Styles organized under src/components/styles; Hero sheets gather from scattered positions. Extract into a new folder; Node 24 LTS, npm ci, npm start. See docs/code-structure.md.
+Slow Hero gather, hover scatter and scroll-to-top replay. Extract into a new folder; Node 24 LTS, npm ci, npm start. See docs/floating-screen-interaction.md.
 
-SHA-256: 19e600ebab875a62cc1a4f069b1aee1f4fc188f4e07b0c2e6fbd1e0e247c4126
+SHA-256: e8420bb2e8fd4832672921f6073bf94cb613f4a3f6aba743d14ce01b8cfb578d
