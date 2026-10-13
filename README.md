@@ -2,6 +2,6 @@
 
 [Download ZIP](https://github.com/jiyu-in/portfolio/raw/refs/heads/portfolio-renewal-download/portfolio-renewal.zip)
 
-Minimal white/black scroll portfolio, sticky stories and full-background previews. Extract into a new folder; Node 24 LTS, npm ci, npm start. See docs/scroll-portfolio.md. Existing imagery is labeled reference photography, actual UI captures and Resume URL remain content TODOs.
+Latest complete React + Vite source: masked Hero text reveal, scroll stories, accessible custom cursor, styled-components/theme unification, unused file and dependency cleanup. Extract into a NEW folder; Node 24 LTS, npm ci, npm start. See docs/styled-cleanup.md for changes/deletions. Actual UI captures and Resume URL remain content TODOs. This branch only distributes source ZIP; the website/main is not published.
 
-SHA-256: e1f953d1df6b5597c46007ddd62ba06ed81badc7b8ca03cd8bbc3b1e60183c87
+SHA-256: 76dbde48ed432871c3f056f8aadc95247ef1251b187d358f6ca4324e26e2a31a
